@@ -1,28 +1,83 @@
 import React, { Component } from 'react';
+import Validator from 'validator';
 
 class Form extends Component {
   state = {
-    name: '',
+    nom: '',
     mail: '',
-    subject: '',
-    msg: ''
+    msg: '',
+    formErrors: {
+      nom: '',
+      mail: '',
+      msg: ''
+    },
+    show: false
+  };
+
+  validate = () => {
+    const { nom, mail, msg, formErrors } = this.state;
+    if (formErrors.nom || formErrors.mail || formErrors.msg) {
+      return false;
+    }
+    if (nom === '' || mail === '' || msg === '') {
+      return false;
+    }
+    return true;
+  };
+
+  showAlert = () => {
+    this.setState({ show: true });
+  };
+
+  closeAlert = e => {
+    e.preventDefault();
+    this.setState({ show: false });
   };
 
   handleChange = e => {
     const { name, value } = e.target;
+    const formErrors = { ...this.state.formErrors };
+    switch (name) {
+      case 'nom':
+        formErrors.nom =
+          Validator.isEmpty(value) || !Validator.isAlpha(value)
+            ? 'Field required'
+            : '';
+        break;
+      case 'mail':
+        formErrors.mail =
+          !Validator.isEmail(value) || Validator.isEmpty(value)
+            ? 'Invalid Email'
+            : '';
+        break;
+      case 'msg':
+        formErrors.msg =
+          Validator.isEmpty(value) || !Validator.isAlpha(value)
+            ? 'Field required'
+            : '';
+        break;
+      default:
+        break;
+    }
     this.setState({
-      [name]: value
+      [name]: value,
+      formErrors
     });
   };
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
-    this.setState({
-      name: '',
-      mail: '',
-      subject: '',
-      msg: ''
-    });
+    const isValid = this.validate();
+    if (isValid) {
+      console.log(this.state);
+      this.setState({
+        nom: '',
+        mail: '',
+        msg: '',
+        show: false
+      });
+    } else {
+      this.showAlert();
+    }
   };
   render() {
     return (
@@ -31,12 +86,15 @@ class Form extends Component {
           <div className="form-group">
             <label>Votre nom</label>
             <input
-              value={this.state.name}
-              name="name"
+              value={this.state.nom}
+              name="nom"
               type="text"
               className="form-control"
               onChange={this.handleChange}
             />
+            <div className="text-danger">
+              <p>{this.state.nom === '' ? this.state.formErrors.nom : null}</p>
+            </div>
           </div>
           <div className="form-group">
             <label>Votre email</label>
@@ -47,16 +105,14 @@ class Form extends Component {
               className="form-control"
               onChange={this.handleChange}
             />
-          </div>
-          <div className="form-group">
-            <label>Sujet</label>
-            <input
-              value={this.state.subject}
-              type="text"
-              name="subject"
-              className="form-control"
-              onChange={this.handleChange}
-            />
+            <div className="text-danger">
+              <p>
+                {' '}
+                {this.state.mail === ''
+                  ? this.state.formErrors.mail
+                  : null}{' '}
+              </p>
+            </div>
           </div>
           <div className="form-group">
             <label>Votre message</label>
@@ -67,10 +123,33 @@ class Form extends Component {
               rows="3"
               onChange={this.handleChange}
             />
+            <div className="text-danger">
+              <p>
+                {' '}
+                {this.state.msg === '' ? this.state.formErrors.msg : null}{' '}
+              </p>
+            </div>
           </div>
           <button type="submit" className="btn btn-outline-light btn-block">
             Envoyer
           </button>
+          {this.state.show ? (
+            <div
+              className="alert alert-danger alert-dismissible fade show mt-4"
+              role="alert"
+            >
+              <strong>Form Filds Required!</strong> You should fill the fields.
+              <button
+                type="button"
+                className="close"
+                data-dismiss="alert"
+                aria-label="Close"
+                onClick={this.closeAlert}
+              >
+                x
+              </button>
+            </div>
+          ) : null}
         </form>
       </div>
     );

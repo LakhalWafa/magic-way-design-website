@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ScrollUpButton from 'react-scroll-up-button';
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/navbar/NavBar';
 import Home from './components/home/home';
@@ -12,7 +13,7 @@ import Footer from './components/footer/Footer';
 class App extends Component {
   render() {
     return (
-      <React.Fragment>
+      <BrowserRouter>
         <NavBar />
         <Home />
         <About />
@@ -21,7 +22,7 @@ class App extends Component {
         <Contact />
         <Footer />
         <ScrollUpButton />
-      </React.Fragment>
+      </BrowserRouter>
     );
   }
 }
