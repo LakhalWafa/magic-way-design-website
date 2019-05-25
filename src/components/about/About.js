@@ -28,8 +28,11 @@ const About = () => {
               <img alt="" className="img-fluid rounded mt-2" src={about} />
             </div>
           </div>
+
           <div className="w-100" />
+
           <div className="col-sm">
+            <h1 className="text-hide bgPhoto p-5 mt-3"> Contact Us</h1>
             <Whatwedo />
           </div>
         </div>

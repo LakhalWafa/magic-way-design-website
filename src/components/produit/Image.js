@@ -2,6 +2,7 @@ import React from 'react';
 import Gallery from 'react-photo-gallery';
 import Lightbox from 'react-images';
 import myPhotos from './photo.json';
+import HoveredImage from './HoveredImage';
 
 const photos = myPhotos;
 
@@ -29,10 +30,15 @@ class Image extends React.Component {
       currentImage: this.state.currentImage + 1
     });
   };
+
   render() {
     return (
       <div>
-        <Gallery photos={photos} onClick={this.openLightbox} />
+        <Gallery
+          photos={photos}
+          onClick={this.openLightbox}
+          renderImage={HoveredImage}
+        />
         <Lightbox
           images={photos}
           onClose={this.closeLightbox}

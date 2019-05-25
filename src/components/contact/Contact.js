@@ -4,9 +4,9 @@ import Coordinates from './Coordinates.js';
 
 const Contact = () => {
   return (
-    <div id="contact" className="  bg-primary">
+    <div id="contact" className="bg-primary">
+      <h1 className="text-center py-4 text-white mb-0"> Contact Us</h1>
       <div className="container">
-        <h1 className="text-center py-4 text-white mb-0"> Contact Us</h1>
         <div className="row bg-dark text-white">
           <div className="col-sm">
             <Form />
