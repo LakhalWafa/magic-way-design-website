@@ -131,7 +131,7 @@ class Form extends Component {
               className="form-control"
               onChange={this.handleChange}
             />
-            <div className="text-danger">
+            <div style={{ color: '#ffb3b3' }}>
               <p> {this.state.clientNameError} </p>
             </div>
           </div>
@@ -144,7 +144,7 @@ class Form extends Component {
               className="form-control"
               onChange={this.handleChange}
             />
-            <div className="text-danger">
+            <div style={{ color: '#ffb3b3' }}>
               <p> {this.state.mailError} </p>
             </div>
           </div>
@@ -157,7 +157,7 @@ class Form extends Component {
               rows="3"
               onChange={this.handleChange}
             />
-            <div className="text-danger">
+            <div style={{ color: '#ffb3b3' }}>
               <p> {this.state.msgError} </p>
             </div>
           </div>
