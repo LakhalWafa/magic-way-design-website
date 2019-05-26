@@ -48,8 +48,6 @@ class Form extends Component {
       clientNameError = 'Name cannot contain a number';
     } else if (this.state.clientName.length < 3) {
       clientNameError = 'Name cannot be less than 3 characters';
-    } else if (this.state.clientName.length > 15) {
-      clientNameError = 'Name cannot be more than 15 characters';
     }
 
     if (!this.state.msg) {
