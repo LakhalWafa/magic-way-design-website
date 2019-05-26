@@ -1,25 +1,73 @@
 import React, { Component } from 'react';
-import Validator from 'validator';
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+
+const Config = {
+  apiKey: 'AIzaSyDvH8VScez1WciS9q0RZQCK5cs47I3wsmo',
+  authDomain: 'magic-way-design.firebaseapp.com',
+  databaseURL: 'https://magic-way-design.firebaseio.com',
+  projectId: 'magic-way-design',
+  storageBucket: 'magic-way-design.appspot.com',
+  messagingSenderId: '481231562508',
+  appId: '1:481231562508:web:a221b23bda8264f1'
+};
+
+firebase.initializeApp(Config);
+
+const db = firebase.firestore();
 
 class Form extends Component {
   state = {
-    nom: '',
+    clientName: '',
     mail: '',
     msg: '',
-    formErrors: {
-      nom: '',
-      mail: '',
-      msg: ''
-    },
+    clientNameError: '',
+    mailError: '',
+    msgError: '',
     show: false
   };
 
   validate = () => {
-    const { nom, mail, msg, formErrors } = this.state;
-    if (formErrors.nom || formErrors.mail || formErrors.msg) {
-      return false;
+    let clientNameError = '';
+    let mailError = '';
+    let msgError = '';
+
+    if (
+      !new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(
+        this.state.mail
+      )
+    ) {
+      mailError = 'Invalid Email';
+    } else if (!this.state.mail) {
+      mailError = 'Email cannot be blank';
     }
-    if (nom === '' || mail === '' || msg === '') {
+
+    if (!this.state.clientName) {
+      clientNameError = 'Name cannot be blank';
+    } else if (/\d/.test(this.state.clientName)) {
+      clientNameError = 'Name cannot contain a number';
+    } else if (this.state.clientName.length < 3) {
+      clientNameError = 'Name cannot be less than 3 characters';
+    } else if (this.state.clientName.length > 15) {
+      clientNameError = 'Name cannot be more than 15 characters';
+    }
+
+    if (!this.state.msg) {
+      msgError = 'Message cannot be blank';
+    } else if (this.state.msg.length < 8) {
+      msgError = 'Message cannot be less than 8 characters';
+    }
+
+    if (
+      this.state.msg === '' &&
+      this.state.clientName === '' &&
+      this.state.mail === ''
+    ) {
+      this.setState({ show: true });
+    }
+
+    if (mailError || clientNameError || msgError) {
+      this.setState({ mailError, clientNameError, msgError });
       return false;
     }
     return true;
@@ -36,43 +84,34 @@ class Form extends Component {
 
   handleChange = e => {
     const { name, value } = e.target;
-    const formErrors = { ...this.state.formErrors };
-    switch (name) {
-      case 'nom':
-        formErrors.nom =
-          Validator.isEmpty(value) || !Validator.isAlpha(value)
-            ? 'Field required'
-            : '';
-        break;
-      case 'mail':
-        formErrors.mail =
-          !Validator.isEmail(value) || Validator.isEmpty(value)
-            ? 'Invalid Email'
-            : '';
-        break;
-      case 'msg':
-        formErrors.msg =
-          Validator.isEmpty(value) || !Validator.isAlpha(value)
-            ? 'Field required'
-            : '';
-        break;
-      default:
-        break;
-    }
     this.setState({
-      [name]: value,
-      formErrors
+      [name]: value
     });
   };
   handleSubmit = e => {
     e.preventDefault();
     const isValid = this.validate();
     if (isValid) {
-      console.log(this.state);
+      const { clientName, mail, msg } = this.state;
+      db.collection('Messages')
+        .add({
+          name: clientName,
+          email: mail,
+          msg: msg
+        })
+        .then(function(docRef) {
+          console.log('Document written with ID: ', docRef.id);
+        })
+        .catch(function(error) {
+          console.error('Error adding document: ', error);
+        });
       this.setState({
-        nom: '',
+        clientName: '',
         mail: '',
         msg: '',
+        clientNameError: '',
+        mailError: '',
+        msgError: '',
         show: false
       });
     } else {
@@ -84,20 +123,20 @@ class Form extends Component {
       <div className="container" style={{ marginTop: '10%' }}>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label>Votre nom</label>
+            <label>Votre Nom</label>
             <input
-              value={this.state.nom}
-              name="nom"
+              value={this.state.clientName}
+              name="clientName"
               type="text"
               className="form-control"
               onChange={this.handleChange}
             />
             <div className="text-danger">
-              <p>{this.state.nom === '' ? this.state.formErrors.nom : null}</p>
+              <p> {this.state.clientNameError} </p>
             </div>
           </div>
           <div className="form-group">
-            <label>Votre email</label>
+            <label>Votre Email</label>
             <input
               value={this.state.mail}
               name="mail"
@@ -106,16 +145,11 @@ class Form extends Component {
               onChange={this.handleChange}
             />
             <div className="text-danger">
-              <p>
-                {' '}
-                {this.state.mail === ''
-                  ? this.state.formErrors.mail
-                  : null}{' '}
-              </p>
+              <p> {this.state.mailError} </p>
             </div>
           </div>
           <div className="form-group">
-            <label>Votre message</label>
+            <label>Votre Message</label>
             <textarea
               value={this.state.msg}
               name="msg"
@@ -124,10 +158,7 @@ class Form extends Component {
               onChange={this.handleChange}
             />
             <div className="text-danger">
-              <p>
-                {' '}
-                {this.state.msg === '' ? this.state.formErrors.msg : null}{' '}
-              </p>
+              <p> {this.state.msgError} </p>
             </div>
           </div>
           <button type="submit" className="btn btn-outline-light btn-block">
