@@ -6,7 +6,7 @@ import slogan from './slogan.png';
 export default function Whatwedo() {
   return (
     <div className="container text-white bg-dark">
-      <ul className="row text-center my-4 p-4">
+      <ul className="row text-center mb-2">
         <li className="col-sm">
           <img src={target} alt="" className="pl-4" />
           <h3>Nos objectifs</h3>
