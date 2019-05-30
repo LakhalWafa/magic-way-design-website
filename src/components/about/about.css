@@ -1,5 +1,31 @@
+#about {
+  position: relative;
+}
+
 ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
+}
+
+.myabout {
+  background-image: url('../home/jumbetron/slide3.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.myservice {
+  background-image: url('../home/jumbetron/slide5.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.myImg {
+  opacity: 0.9;
+}
+
+.myImg:hover {
+  opacity: 1;
 }

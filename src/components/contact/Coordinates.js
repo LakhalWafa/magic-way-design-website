@@ -11,7 +11,7 @@ const Coordinates = () => {
         <small>Email</small> <h6> magic-way@outlook.fr</h6>
       </div>
       <div className="mb-4">
-        <small>Phone</small>
+        <small>Téléphone</small>
         <h6> +(216) 50 53 85 11 / 54 99 50 20</h6>
       </div>
       <iframe

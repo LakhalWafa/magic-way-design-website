@@ -1,10 +1,10 @@
 import React from 'react';
-import Jumbetron from './jumbetron/Jumbetron';
+import Slides from './jumbetron/Slides';
 
 export default function home() {
   return (
     <div id="home">
-      <Jumbetron />
+      <Slides />
     </div>
   );
 }

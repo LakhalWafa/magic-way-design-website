@@ -1,18 +1,36 @@
 import React from 'react';
-import Image from './Image';
-import References from '../references/References';
+import Gallery from './Gallery';
 
 const Produit = () => {
   return (
     <div id="produit">
       <div className="bg-primary">
-        <h1 className="text-center py-4 mb-0" style={{ color: 'white' }}>
-          Our Work
+        <h1 className="text-center py-4" style={{ color: 'white' }}>
+          Notre travail
         </h1>
-        <div className="container bg-dark text-white p-5">
-          <Image />
+        <div className="bg-white text-white p-5">
+          <Gallery className="shadow-lg" />
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <a
+              href="https://www.facebook.com/pg/MagicWayDesign/photos/?ref=page_internal"
+              target="_blank"
+            >
+              <button
+                type="button"
+                className="btn btn-dark m-4"
+                style={{ cursor: 'pointer' }}
+              >
+                See More
+              </button>
+            </a>
+          </div>
         </div>
-        <References />
       </div>
     </div>
   );

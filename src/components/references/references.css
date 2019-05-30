@@ -6,3 +6,10 @@
   outline: 2px solid #fa509f;
   opacity: 0.8;
 }
+
+.ref {
+  background-image: url('../home/jumbetron/slide6.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}

@@ -1,37 +1,59 @@
 import React from 'react';
-import target from './target.png';
-import vision from './vision.png';
-import slogan from './slogan.png';
+import './whatwedo.css';
 
 export default function Whatwedo() {
   return (
-    <div className="container text-white bg-dark">
-      <ul className="row text-center mb-2">
-        <li className="col-sm">
-          <img src={target} alt="" className="pl-4" />
-          <h3>Nos objectifs</h3>
-          <ul>
-            <li>Instaurer/Développer votre image de marque.</li>
-            <li>Réussir vos compagnes de communication.</li>
-            <li>
+    <div className="container">
+      <div className="row">
+        <div
+          className="card text-white text-center col-sm bg-dark mx-lg-2 mx-auto my-3 shadow-lg"
+          style={{
+            width: '18rem'
+          }}
+        >
+          <i className="fas fa-bullseye fa-3x p-3 card-img-top" />
+
+          <div className="card-body">
+            <h2 className="card-title">Nos objectifs</h2>
+            <p className="card-text">
+              Instaurer/Développer votre image de marque.
+              <br />
+              Réussir vos compagnes de communication.
+              <br />
               Conseil et accompagnement dans votre démarche marketing et
               commerciale.
-            </li>
-            <li>
+              <br />
               Répondre à vos attentes en termes d’innovation, coûts et qualité.
-            </li>
-          </ul>
-        </li>
-        <li className="col-sm">
-          <img src={vision} alt="" />
-          <h3>Notre vision</h3>
-          Conception d’une manière magique.
-        </li>
-        <li className="col-sm">
-          <img src={slogan} alt="" />
-          <h3>Notre slogan</h3>« Your way, Our design »
-        </li>
-      </ul>
+            </p>
+          </div>
+        </div>
+        <div
+          className="card text-white text-center col-sm bg-dark mx-lg-2 mx-auto my-3 shadow-lg"
+          style={{
+            width: '18rem'
+          }}
+        >
+          <i class="fas fa-eye fa-3x p-3 card-img-top" />
+
+          <div className="card-body">
+            <h2 className="card-title">Notre vision</h2>
+            <p className="card-text">Conception d’une manière magique.</p>
+          </div>
+        </div>
+
+        <div
+          className="card text-white text-center col-sm bg-dark mx-lg-2 mx-auto my-3 shadow-lg"
+          style={{
+            width: '18rem'
+          }}
+        >
+          <i class="fas fa-gem fa-3x p-3 card-img-top" />
+          <div className="card-body">
+            <h2 className="card-title">Notre slogan</h2>
+            <p className="card-text">« Your way, Our design »</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

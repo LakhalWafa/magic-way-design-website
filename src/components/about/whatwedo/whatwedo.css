@@ -1,0 +1,34 @@
+.card {
+  transition: all 0.2s ease-in-out;
+}
+.card:hover {
+  transform: scale(1.05);
+  opacity: 0.8;
+}
+
+.star {
+  -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari */
+  transition: width 2s, height 2s, transform 2s;
+  animation: example 4s infinite;
+}
+
+@keyframes example {
+  0% {
+    transform: rotate(50deg);
+  }
+  20% {
+    transform: rotate(80deg);
+  }
+  40% {
+    transform: rotate(100deg);
+  }
+  60% {
+    transform: rotate(120deg);
+  }
+  80% {
+    transform: rotate(140deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}

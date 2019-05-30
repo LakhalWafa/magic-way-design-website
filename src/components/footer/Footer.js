@@ -7,7 +7,7 @@ import linkedin from './linkedin.png';
 const Footer = () => {
   return (
     <div
-      className="py-4"
+      className="py-4 mb-0"
       style={{ color: 'white', background: 'rgb(194, 10, 111)' }}
     >
       <div className="container">

@@ -1,15 +1,35 @@
 import React, { Component } from 'react';
 import { Link, animateScroll as scroll } from 'react-scroll';
 import logo from './logo.png';
+import './navbar.css';
 
 class NavBar extends Component {
+  state = {
+    isTop: true
+  };
+
+  componentDidMount() {
+    document.addEventListener('scroll', () => {
+      const isTop = window.scrollY < 100;
+      if (isTop !== this.state.isTop) {
+        this.setState({ isTop });
+      }
+    });
+  }
   scrollToTop = () => {
     scroll.scrollToTop();
   };
+
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <nav
+          className={
+            this.state.isTop
+              ? 'mynav navbar navbar-expand-lg navbar-dark bg-dark fixed-top border-bottom border-white'
+              : 'navbar navbar-expand-lg navbar-dark bg-dark fixed-top border-bottom border-white'
+          }
+        >
           <div className="container">
             <Link
               className="navbar-brand"
@@ -35,21 +55,7 @@ class NavBar extends Component {
               id="navbarNav"
             >
               <ul className="navbar-nav">
-                <li className="nav-item">
-                  <Link
-                    style={{ cursor: 'pointer' }}
-                    className="nav-link"
-                    activeClass="active"
-                    to="home"
-                    spy={true}
-                    smooth={true}
-                    offset={-70}
-                    duration={500}
-                  >
-                    Home{' '}
-                  </Link>
-                </li>
-                <li className="nav-item">
+                <li className="nav-item px-2">
                   <Link
                     style={{ cursor: 'pointer' }}
                     className="nav-link"
@@ -63,7 +69,7 @@ class NavBar extends Component {
                     About
                   </Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item px-2">
                   <Link
                     style={{ cursor: 'pointer' }}
                     className="nav-link"
@@ -77,7 +83,7 @@ class NavBar extends Component {
                     Product{' '}
                   </Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item  px-2">
                   <Link
                     style={{ cursor: 'pointer' }}
                     className="nav-link"
@@ -91,7 +97,7 @@ class NavBar extends Component {
                     Service{' '}
                   </Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item  px-2">
                   <Link
                     style={{ cursor: 'pointer' }}
                     className="nav-link"

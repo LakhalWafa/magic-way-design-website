@@ -1,18 +1,7 @@
 import React, { Component } from 'react';
-import firebase from 'firebase/app';
+import firebase from '../../config';
 import 'firebase/firestore';
 
-const Config = {
-  apiKey: 'AIzaSyDvH8VScez1WciS9q0RZQCK5cs47I3wsmo',
-  authDomain: 'magic-way-design.firebaseapp.com',
-  databaseURL: 'https://magic-way-design.firebaseio.com',
-  projectId: 'magic-way-design',
-  storageBucket: 'magic-way-design.appspot.com',
-  messagingSenderId: '481231562508',
-  appId: '1:481231562508:web:a221b23bda8264f1'
-};
-
-firebase.initializeApp(Config);
 
 const db = firebase.firestore();
 
@@ -37,23 +26,23 @@ class Form extends Component {
         this.state.mail
       )
     ) {
-      mailError = 'Invalid Email';
+      mailError = 'Adresse mail invalide';
     } else if (!this.state.mail) {
-      mailError = 'Email cannot be blank';
+      mailError = 'L\'adresse mail ne peut pas être vide';
     }
 
     if (!this.state.clientName) {
-      clientNameError = 'Name cannot be blank';
+      clientNameError = 'Le nom ne peut pas être vide';
     } else if (/\d/.test(this.state.clientName)) {
-      clientNameError = 'Name cannot contain a number';
+      clientNameError = 'Le nom ne peut pas contenir de numéro';
     } else if (this.state.clientName.length < 3) {
-      clientNameError = 'Name cannot be less than 3 characters';
+      clientNameError = 'Le nom ne peut pas être inférieur à 3 caractères';
     }
 
     if (!this.state.msg) {
-      msgError = 'Message cannot be blank';
-    } else if (this.state.msg.length < 8) {
-      msgError = 'Message cannot be less than 8 characters';
+      msgError = 'Le message ne peut pas être vide';
+    } else if (this.state.msg.length < 4) {
+      msgError = 'Le message ne peut pas être inférieur à 4 caractères';
     }
 
     if (
@@ -91,7 +80,7 @@ class Form extends Component {
     const isValid = this.validate();
     if (isValid) {
       const { clientName, mail, msg } = this.state;
-      db.collection('Messages')
+      db.collection('messages')
         .add({
           name: clientName,
           email: mail,
@@ -167,7 +156,7 @@ class Form extends Component {
               className="alert alert-danger alert-dismissible fade show mt-4"
               role="alert"
             >
-              <strong>Form Filds Required!</strong> You should fill the fields.
+              <strong>Champs de formulaire requis!</strong> Vous devez remplir les champs et merci.
               <button
                 type="button"
                 className="close"

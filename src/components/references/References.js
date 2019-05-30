@@ -5,31 +5,30 @@ import sicam from './sicam.png';
 import douja from './douja.png';
 import sotumeca from './sotumeca.png';
 import zodiac from './zodiac.png';
+import cherry from './cherry.png';
+import threes from './3s.png';
+import jci from './jci.png';
+import kitmatec from './kitmatec.png';
+import um from './um.png';
 import './references.css';
+import Ref from './Ref';
 
 function References() {
   return (
-    <div className="container bg-dark text-white mb-0 pb-5">
-      <h1 className="text-center">They trusted us</h1>
+    <div className="container-fuild text-white py-5 ref">
+      <h1 className="text-center">Ils nous ont fait confiance</h1>
       <div className="d-flex flex-wrap justify-content-center">
-        <div className="grow m-1">
-          <img src={sagem} alt="" />
-        </div>
-        <div className="grow m-1">
-          <img src={elmazraa} alt="" />
-        </div>
-        <div className="grow m-1">
-          <img src={sicam} alt="" />
-        </div>
-        <div className="grow m-1">
-          <img src={douja} alt="" />
-        </div>
-        <div className="grow m-1">
-          <img src={sotumeca} alt="" />
-        </div>
-        <div className="grow m-1">
-          <img src={zodiac} alt="" />
-        </div>
+        <Ref src={sagem} />
+        <Ref src={elmazraa} />
+        <Ref src={sicam} />
+        <Ref src={douja} />
+        <Ref src={sotumeca} />
+        <Ref src={zodiac} />
+        <Ref src={cherry} />
+        <Ref src={threes} />
+        <Ref src={kitmatec} />
+        <Ref src={um} />
+        <Ref src={jci} />
       </div>
     </div>
   );
