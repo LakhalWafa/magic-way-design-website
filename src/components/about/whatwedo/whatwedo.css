@@ -7,28 +7,27 @@
 }
 
 .star {
-  -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari */
   transition: width 2s, height 2s, transform 2s;
   animation: example 4s infinite;
+}
+.star:hover {
+  opacity: 0.8;
 }
 
 @keyframes example {
   0% {
-    transform: rotate(50deg);
+    transform: rotate(0deg);
   }
   20% {
-    transform: rotate(80deg);
+    transform: rotate(180deg);
   }
   40% {
-    transform: rotate(100deg);
+    transform: rotate(0deg);
   }
   60% {
-    transform: rotate(120deg);
-  }
-  80% {
-    transform: rotate(140deg);
+    transform: rotate(180deg);
   }
   100% {
-    transform: rotate(180deg);
+    transform: rotate(0deg);
   }
 }

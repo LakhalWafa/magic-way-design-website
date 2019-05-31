@@ -7,7 +7,7 @@ import References from './references/References';
 
 const Toggle = () => {
   return (
-    <div>
+    <div className="mt-0 pt-0">
       <About />
       <Produit />
       <References />

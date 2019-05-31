@@ -36,7 +36,7 @@ class NavBar extends Component {
               onClick={this.scrollToTop}
               style={{ cursor: 'pointer' }}
             >
-              <img src={logo} alt="" />
+              <img src={logo} alt="Magic Way Design" />
             </Link>
             <button
               style={{ cursor: 'pointer' }}

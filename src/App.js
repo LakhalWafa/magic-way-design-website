@@ -14,7 +14,7 @@ class App extends Component {
 
   toggle = e => {
     e.preventDefault();
-    this.setState({ show: true });
+    this.setState({ show: !this.state.show });
   };
   render() {
     return (

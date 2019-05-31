@@ -16,7 +16,7 @@ const Service = () => {
           <div className="card-header">
             <h2 className="card-title">Conception Graphique</h2>
           </div>
-          <i class="fab fa-sketch text-white fa-3x p-3 card-img-top" />
+          <i className="fab fa-sketch text-white fa-3x p-3 card-img-top" />
           <div className="card-body">
             <p className="card-text">
               {' '}
@@ -36,7 +36,7 @@ const Service = () => {
           <div className="card-header">
             <h2 className="card-title">Impression sur tous supports</h2>
           </div>
-          <i class="fas fa-paint-brush text-white fa-3x p-3 card-img-top" />
+          <i className="fas fa-paint-brush text-white fa-3x p-3 card-img-top" />
           <div className="card-body">
             <p className="card-text">
               {' '}
@@ -60,7 +60,7 @@ const Service = () => {
           <div className="card-header">
             <h2 className="card-title">Packaging</h2>
           </div>
-          <i class="fas fa-gift text-white fa-3x p-3 card-img-top" />
+          <i className="fas fa-gift text-white fa-3x p-3 card-img-top" />
           <div className="card-body">
             <p className="card-text">
               {' '}
@@ -77,7 +77,7 @@ const Service = () => {
           <div className="card-header">
             <h2 className="card-title">Événementiel</h2>
           </div>
-          <i class="fas fa-calendar-alt fa-3x text-white p-3 card-img-top" />
+          <i className="fas fa-calendar-alt fa-3x text-white p-3 card-img-top" />
           <div className="card-body">
             <p className="card-text">
               {' '}

@@ -4,12 +4,9 @@ function Hero(props) {
   return (
     <div
       className="container"
-      style={{ position: 'relative', height: '100vh', paddingTop: '10%' }}
+      style={{ position: 'relative', height: '100vh' }}
     >
-      <div
-        className="text-white"
-        style={{ paddingTop: '25%', paddingBottom: '22.5%' }}
-      >
+      <div className="text-white" style={{ paddingTop: '25%' }}>
         <h1> Your Way, Our Design</h1>
         <p>
           Nous vous proposons des idées simples et enrichissantes, des univers
@@ -20,9 +17,9 @@ function Hero(props) {
           style={{ cursor: 'pointer' }}
           type="button"
           onClick={props.toggle}
-          className="btn btn-outline-light btn-lg mb-5"
+          className="btn btn-outline-light btn-lg"
         >
-          Learn More
+          Savoir Plus
         </button>
       </div>
     </div>

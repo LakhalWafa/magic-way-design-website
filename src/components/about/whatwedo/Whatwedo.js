@@ -33,7 +33,7 @@ export default function Whatwedo() {
             width: '18rem'
           }}
         >
-          <i class="fas fa-eye fa-3x p-3 card-img-top" />
+          <i className="fas fa-eye fa-3x p-3 card-img-top" />
 
           <div className="card-body">
             <h2 className="card-title">Notre vision</h2>
@@ -47,10 +47,13 @@ export default function Whatwedo() {
             width: '18rem'
           }}
         >
-          <i class="fas fa-gem fa-3x p-3 card-img-top" />
+          <i className="fas fa-gem fa-3x p-3 card-img-top" />
           <div className="card-body">
             <h2 className="card-title">Notre slogan</h2>
-            <p className="card-text">« Your way, Our design »</p>
+            <p className="card-text">
+              « Your way, Our design »<br />
+              (votre chemin notre conception)
+            </p>
           </div>
         </div>
       </div>

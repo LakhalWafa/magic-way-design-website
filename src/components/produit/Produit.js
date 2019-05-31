@@ -20,13 +20,14 @@ const Produit = () => {
             <a
               href="https://www.facebook.com/pg/MagicWayDesign/photos/?ref=page_internal"
               target="_blank"
+              rel="noopener noreferrer"
             >
               <button
                 type="button"
                 className="btn btn-dark m-4"
                 style={{ cursor: 'pointer' }}
               >
-                See More
+                Voir Plus
               </button>
             </a>
           </div>

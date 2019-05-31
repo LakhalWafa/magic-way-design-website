@@ -1,3 +1,37 @@
 .mynav {
   background-color: rgba(128, 128, 128, 0.3) !important;
 }
+
+.navbar-brand {
+  position: relative;
+  transition: width 2s, height 2s, transform 2s;
+  animation: brand 4s;
+}
+
+.navbar-brand:hover {
+  transform: rotate(180deg);
+  opacity: 0.8;
+}
+
+@keyframes brand {
+  0% {
+    transform: rotate(0deg);
+    left: 0%;
+  }
+  20% {
+    transform: rotate(50deg);
+    left: 50%;
+  }
+  40% {
+    transform: rotate(0deg);
+    left: 50%;
+  }
+  60% {
+    transform: rotate(-50deg);
+    left: 0%;
+  }
+  100% {
+    transform: rotate(0deg);
+    left: 0%;
+  }
+}
