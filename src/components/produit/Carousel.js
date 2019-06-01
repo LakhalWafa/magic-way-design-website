@@ -4,7 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 export default ({ src }) => (
   <Carousel autoPlay showIndicators={false}>
     {src.map(i => (
-      <div>
+      <div key={i}>
         <img src={i} alt="" />
       </div>
     ))}

@@ -1,5 +1,8 @@
 import React from 'react';
 import './whatwedo.css';
+import slogan from './slogan.png';
+import target from './target.png';
+import vision from './vision.png';
 
 export default function Whatwedo() {
   return (
@@ -11,8 +14,12 @@ export default function Whatwedo() {
             width: '18rem'
           }}
         >
-          <i className="fas fa-bullseye fa-3x p-3 card-img-top" />
-
+          <img
+            src={target}
+            alt=""
+            className="card-img-top p-2 mx-auto"
+            style={{ width: '100px', height: '100px' }}
+          />
           <div className="card-body">
             <h2 className="card-title">Nos objectifs</h2>
             <p className="card-text">
@@ -33,7 +40,12 @@ export default function Whatwedo() {
             width: '18rem'
           }}
         >
-          <i className="fas fa-eye fa-3x p-3 card-img-top" />
+          <img
+            src={vision}
+            alt=""
+            className="card-img-top p-2 mx-auto"
+            style={{ width: '100px', height: '100px' }}
+          />
 
           <div className="card-body">
             <h2 className="card-title">Notre vision</h2>
@@ -47,7 +59,12 @@ export default function Whatwedo() {
             width: '18rem'
           }}
         >
-          <i className="fas fa-gem fa-3x p-3 card-img-top" />
+          <img
+            src={slogan}
+            alt=""
+            className="card-img-top p-2 mx-auto"
+            style={{ width: '100px', height: '100px' }}
+          />
           <div className="card-body">
             <h2 className="card-title">Notre slogan</h2>
             <p className="card-text">

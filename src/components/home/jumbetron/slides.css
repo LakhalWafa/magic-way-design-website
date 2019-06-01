@@ -93,3 +93,7 @@ slide:nth-child(8) {
     opacity: 1;
   }
 }
+
+.herobg {
+  background-color: rgba(128, 128, 128, 0.6) !important;
+}

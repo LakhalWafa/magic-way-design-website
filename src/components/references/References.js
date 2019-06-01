@@ -12,6 +12,9 @@ import kitmatec from './kitmatec.png';
 import um from './um.png';
 import './references.css';
 import Ref from './Ref';
+import visteon from './visteon.png';
+import cotrel from './cotrel.png';
+import italcar from './italcar.png';
 
 function References() {
   return (
@@ -20,6 +23,9 @@ function References() {
       <div className="d-flex flex-wrap justify-content-center">
         <Ref src={sagem} />
         <Ref src={elmazraa} />
+        <Ref src={visteon} />
+        <Ref src={italcar} />
+        <Ref src={cotrel} />
         <Ref src={sicam} />
         <Ref src={douja} />
         <Ref src={sotumeca} />
